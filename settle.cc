@@ -357,6 +357,8 @@ double find_yb(void)
   // find ignition depth
 {
   double yb=zbrent(doint,8.0,10.0,1e-3);
+  // Do the integration again to make sure ODE has results for the correct value of yb
+  doint(yb);
   return pow(10.0,yb);
 }
 
